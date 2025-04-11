@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Changed Title -->
+    <title>Typo-Check: Bindestrich, Gedankenstrich & Co.</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Link to a potentially cleaner font like Inter or Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="game-container">
+        <!-- Changed Heading -->
+        <h1>Typo-Check für Designer</h1>
+        <p class="subtitle">Bindestrich, Gedankenstrich oder Leerzeichen?</p>
+
+        <div id="question-area">
+            <p id="question-number"></p>
+            <p id="question-text">Frage lädt...</p>
+        </div>
+
+        <div id="answer-options">
+            <!-- Buttons remain structurally the same -->
+            <button class="option-button" id="option1" data-option="1">
+                <span class="number">1</span>
+                <span class="text" id="answer-text-1"></span>
+            </button>
+            <button class="option-button" id="option2" data-option="2">
+                <span class="number">2</span>
+                <span class="text" id="answer-text-2"></span>
+            </button>
+            <button class="option-button" id="option3" data-option="3">
+                <span class="number">3</span>
+                <span class="text" id="answer-text-3"></span>
+            </button>
+        </div>
+
+        <div id="feedback-area">
+            <p id="feedback-text"></p>
+            <p id="explanation-text"></p>
+            <button id="next-button" style="display: none;">Nächste Frage</button>
+        </div>
+
+         <div id="final-score" style="display: none;">
+             <!-- Changed Final Score Text -->
+             <h2>Dein Typo-Ergebnis:</h2>
+             <p id="score-text"></p>
+             <button id="restart-button">Neue Runde!</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+/* Using a clean, modern font like Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --primary-color: #007AFF; /* A common UI blue */
+    --secondary-color: #eef2f5; /* Light grey background */
+    --text-color: #1c1c1e; /* Dark grey for text */
+    --correct-color: #34C759; /* iOS-style green */
+    --incorrect-color: #FF3B30; /* iOS-style red */
+    --border-radius: 8px;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text-color);
+    line-height: 1.6; /* Improved readability */
+}
+
+.game-container {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    width: 90%;
+    max-width: 650px; /* Slightly narrower */
+}
+
+h1 {
+    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 2em;
+}
+
+.subtitle {
+    color: #6c757d; /* Medium grey */
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+#question-area {
+    background-color: #f8f9fa; /* Very light grey */
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    border: 1px solid #dee2e6; /* Subtle border */
+}
+
+#question-number {
+    font-weight: 600;
+    color: #6c757d; /* Medium grey */
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    text-transform: uppercase; /* Style hint */
+    letter-spacing: 0.5px;
+}
+
+#question-text {
+    font-size: 1.3em;
+    font-weight: 600;
+    min-height: 40px;
+    color: var(--text-color);
+}
+
+#answer-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.option-button {
+    flex: 1 1 150px; /* Flexible basis, allow wrapping */
+    padding: 15px 10px;
+    border: 1px solid #ced4da; /* Default border */
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    font-size: 1em; /* Slightly smaller base size */
+    font-weight: 600;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column; /* Keep column layout */
+    align-items: center;
+    text-align: center; /* Center button text */
+    min-height: 80px; /* Ensure consistent height */
+    justify-content: center; /* Center content vertically */
+}
+
+.option-button .number {
+    font-size: 1.5em; /* Smaller number */
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--primary-color); /* Use accent color */
+    /* Remove background circle for cleaner look */
+}
+
+.option-button .text {
+    font-size: 0.95em;
+    font-weight: 400;
+    line-height: 1.4; /* Ensure text wraps nicely */
+}
+
+
+.option-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    border-color: var(--primary-color);
+}
+
+.option-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Feedback Styling - Cleaner Approach */
+.option-button.selected {
+    border-width: 2px;
+    border-color: var(--text-color);
+}
+
+.option-button.correct {
+    background-color: #e8f9ec; /* Lighter green background */
+    border-color: var(--correct-color) !important; /* Strong green border */
+    color: #1e4620; /* Darker green text */
+    border-width: 2px;
+}
+.option-button.correct .number { color: var(--correct-color); }
+
+
+.option-button.incorrect {
+    background-color: #ffebee; /* Lighter red background */
+    border-color: var(--incorrect-color) !important; /* Strong red border */
+    color: #b71c1c; /* Darker red text */
+    opacity: 0.8;
+    border-width: 2px;
+}
+.option-button.incorrect .number { color: var(--incorrect-color); }
+
+/* Highlight correct also when wrong was chosen, but subtly */
+.option-button.correct:not(.selected) {
+     background-color: #e8f9ec;
+     border-color: var(--correct-color);
+     border-width: 2px;
+}
+
+
+#feedback-area {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f8f9fa; /* Match question area bg */
+    border-radius: var(--border-radius);
+    border: 1px solid #dee2e6; /* Match question area border */
+    min-height: 80px;
+}
+
+#feedback-text {
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+#feedback-text.correct-feedback {
+    color: var(--correct-color);
+}
+
+#feedback-text.incorrect-feedback {
+    color: var(--incorrect-color);
+}
+
+#explanation-text {
+    font-size: 1em;
+    color: #495057; /* Slightly darker grey for explanation */
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+#next-button, #restart-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px; /* Pill shape */
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+
+#next-button:hover, #restart-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.03);
+}
+
+#final-score h2 {
+     color: var(--text-color);
+     font-size: 1.6em;
+     margin-bottom: 15px;
+}
+
+#final-score p {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 25px;
+}
+
+/* Basic responsiveness */
+@media (max-width: 600px) {
+    .game-container {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    .subtitle {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+    #question-text {
+        font-size: 1.15em;
+    }
+    #answer-options {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px;
+    }
+    .option-button {
+        width: 100%; /* Full width when stacked */
+        flex-basis: auto;
+        padding: 12px 10px;
+        min-height: 60px;
+    }
+     #feedback-text {
+        font-size: 1.2em;
+    }
+    #explanation-text {
+        font-size: 0.95em;
+    }
+    #next-button, #restart-button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
